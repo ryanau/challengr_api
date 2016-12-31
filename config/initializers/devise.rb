@@ -256,9 +256,9 @@ Devise.setup do |config|
   config.warden do |manager|
     manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
     manager.default_strategies(scope: :user).unshift :jwt
+    manager.failure_app = CoreExtensions::Devise::CustomFailure
 
     # manager.intercept_401 = false
-    # manager.default_strategies(scope: :user).unshift :some_external_strategy
   end
 
   # ==> Mountable engine configurations

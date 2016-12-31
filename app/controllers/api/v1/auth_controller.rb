@@ -1,7 +1,5 @@
 module Api::V1
   class AuthController < Api::BaseController
-    before_action :test
-    before_action :authenticate_user!
     def facebook
       user_info, access_token = Omniauth::Facebook.authenticate(params[:code])
       @user = User.from_omniauth(user_info, access_token)
@@ -14,11 +12,6 @@ module Api::V1
       else
         render_json_message(400, errors: ['Signed in failed.'])
       end
-    end
-
-    def test
-      puts request
-      p 'yay'
     end
   end
 end

@@ -2,7 +2,7 @@ module JWTWrapper
   extend self
 
   def encode(payload, expiration = nil)
-    expiration ||= ENV['JWT_EXPIRATOIN_HOURS']
+    expiration ||= ENV['JWT_EXPIRATION_HOURS']
 
     payload = payload.dup
     payload['exp'] = expiration.to_i.hours.from_now.to_i

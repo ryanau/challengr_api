@@ -1,5 +1,3 @@
-# require 'devise/strategies/authenticatable'
-
 module Devise
   module Strategies
     class JsonWebToken < Authenticatable
