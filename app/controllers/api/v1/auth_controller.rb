@@ -8,7 +8,7 @@ module Api::V1
         sign_in(@user)
         token = JWTWrapper.encode({ uid: @user.uid })
         set_token(token)
-        render_json_message(200, message: 'Successfully signed in.', resource: { token: token })
+        render_json_message(200, message: 'Successfully signed in.', resource: { token: token, access_token: access_token })
       else
         render_json_message(400, errors: ['Signed in failed.'])
       end
