@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :challenges
+
   def self.from_omniauth(user_info, access_token)
     where(uid: user_info['id']).first_or_create! do |user|
       user.email = user_info['email'] || 'default@example.com'

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     namespace 'v1' do
       post 'auth/facebook', to: 'auth#facebook'
       get 'sessions/identity', to: 'sessions#identity'
+
+      resources :challenges, only: [:create]
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

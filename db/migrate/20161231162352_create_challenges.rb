@@ -8,8 +8,13 @@ class CreateChallenges < ActiveRecord::Migration[5.0]
       t.time :time
       t.string :frequency
       t.date :end_date
+      t.string :state
+      t.string :uid
 
       t.timestamps null: false  
+
+      t.index :user_id
+      t.index :uid, unique: true
     end
   end
 end

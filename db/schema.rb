@@ -23,8 +23,12 @@ ActiveRecord::Schema.define(version: 20161231162352) do
     t.time     "time"
     t.string   "frequency"
     t.date     "end_date"
+    t.string   "state"
+    t.string   "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["uid"], name: "index_challenges_on_uid", unique: true, using: :btree
+    t.index ["user_id"], name: "index_challenges_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
